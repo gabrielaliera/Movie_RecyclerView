@@ -5,24 +5,33 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var movieList: MutableList<JSONObject>
+    private lateinit var rvMovies: RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        rvMovies = findViewById(R.id.movie_list)
+        movieList = mutableListOf()
         getMovieInfo()
     }
 
     private fun getMovieInfo() {
         val client = AsyncHttpClient()
 
-        val API_KEY = getString(R.string.API_KEY)
-        Log.d("Movie API", "$API_KEY")
+        val apiKEY = getString(R.string.API_KEY)
 
-        client["https://api.themoviedb.org/3/trending/movie/day?api_key=$API_KEY&language=en-US", object :
+
+        client["https://api.themoviedb.org/3/trending/movie/day?api_key=$apiKEY&language=en-US", object :
             JsonHttpResponseHandler() {
             override fun onSuccess(
                 statusCode: Int,
@@ -32,13 +41,14 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Movie Success", "$json")
                 val movieResults = json.jsonObject.getJSONArray("results")
                 Log.d("Movie Array", "$movieResults")
-                val firstMovie = movieResults.getJSONObject(0)
-                Log.d("Movie 1st", "$firstMovie")
-                val title = firstMovie.getString("title")
-                val voteAverage = firstMovie.getString("vote_average")
-                Log.d("Movie Title/Average", "$title  $voteAverage")
-                val image = "https://image.tmdb.org/t/p/w500/" + firstMovie.getString("poster_path")
-                Log.d("Movie Image", "$image")
+
+                for (i in 0 until movieResults.length()) {
+                    movieList.add(movieResults.getJSONObject(i))
+                }
+
+                val adapter = MovieAdapter(movieList)
+                rvMovies.adapter = adapter
+                rvMovies.layoutManager = LinearLayoutManager(this@MainActivity)
             }
 
             override fun onFailure(
