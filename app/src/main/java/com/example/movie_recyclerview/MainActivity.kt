@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
                 val adapter = MovieAdapter(movieList)
                 rvMovies.adapter = adapter
                 rvMovies.layoutManager = LinearLayoutManager(this@MainActivity)
+                rvMovies.addItemDecoration(DividerItemDecoration(this@MainActivity, LinearLayoutManager.VERTICAL))
             }
 
             override fun onFailure(
