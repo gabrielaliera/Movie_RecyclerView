@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         val API_KEY = getString(R.string.API_KEY)
         Log.d("Movie API", "$API_KEY")
 
-        client["https://api.themoviedb.org/3/movie/76341?api_key=$API_KEY", object :
+        client["https://api.themoviedb.org/3/trending/movie/day?api_key=$API_KEY&language=en-US", object :
             JsonHttpResponseHandler() {
             override fun onSuccess(
                 statusCode: Int,
@@ -30,7 +30,15 @@ class MainActivity : AppCompatActivity() {
                 json: JsonHttpResponseHandler.JSON
             ) {
                 Log.d("Movie Success", "$json")
-                val movieImageArray = json.jsonObject.getJSONArray("message")
+                val movieResults = json.jsonObject.getJSONArray("results")
+                Log.d("Movie Array", "$movieResults")
+                val firstMovie = movieResults.getJSONObject(0)
+                Log.d("Movie 1st", "$firstMovie")
+                val title = firstMovie.getString("title")
+                val voteAverage = firstMovie.getString("vote_average")
+                Log.d("Movie Title/Average", "$title  $voteAverage")
+                val image = "https://image.tmdb.org/t/p/w500/" + firstMovie.getString("poster_path")
+                Log.d("Movie Image", "$image")
             }
 
             override fun onFailure(
