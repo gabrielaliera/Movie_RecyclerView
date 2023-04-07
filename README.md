@@ -1,12 +1,12 @@
 # AND101 Project 6 - CYOAPI Part 2: RecyclerView Edition
 
-Submitted by: **Trending Movies**
+Submitted by: **Gabriela Liera**
 
 Time spent: **5** hours spent in total
 
 ## Summary
 
-**Trending movies** is an android app that displays a scrollable list of the top trennding movies from the Movie Database API. Users can view the movie poster, title and average movie rating.
+**Top 20 Trending Movies** is an android app that displays a scrollable list of the top trennding movies from the Movie Database API. Users can view the movie poster, title and average movie rating.
 
 If I had to describe this project in three (3) emojis, they would be: **✨📽🎉**
 
