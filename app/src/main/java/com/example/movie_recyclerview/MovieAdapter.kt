@@ -65,7 +65,6 @@ class MovieAdapter (private val movieList: List<JSONObject>): RecyclerView.Adapt
             .load(image)
             .centerCrop()
             .into(holder.movieImage)
-
         Log.d("Movie Image", "success")
     }
 
