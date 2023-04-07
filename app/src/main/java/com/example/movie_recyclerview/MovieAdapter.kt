@@ -51,8 +51,9 @@ class MovieAdapter (private val movieList: List<JSONObject>): RecyclerView.Adapt
         val voteAverage = movie.getString("vote_average")
         Log.d("Movie Title/Average", "$title  $voteAverage")
 
+        val rank = position + 1
         //Set title and rating
-        holder.movieTitle.text = title
+        holder.movieTitle.text = "$rank: $title"
         holder.movieRating.text = "Average Rating: $voteAverage"
 
 
