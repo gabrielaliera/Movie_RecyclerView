@@ -1,5 +1,6 @@
 package com.example.movie_recyclerview
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -17,14 +18,17 @@ class MovieAdapter (private val movieList: List<String>): RecyclerView.Adapter<M
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("Not yet implemented")
+        // Create a new view, which defines the UI of the list item
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.movie_item, parent, false)
+
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        TODO("Get element from your dataset at this position and replace the contents of the view with that element")
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount() = movieList.size
+
 }
