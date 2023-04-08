@@ -38,10 +38,10 @@ class MovieAdapter (private val movieList: List<JSONObject>): RecyclerView.Adapt
        //Get element from your dataset at this position and replace the contents of the view with that element"
 
         //Add Toast
+        val rank = position + 1
         holder.movieImage.setOnClickListener {
-            Toast.makeText(holder.itemView.context, "Movie at position $position clicked", Toast.LENGTH_SHORT).show()
+            Toast.makeText(holder.itemView.context, "Number $rank movie clicked", Toast.LENGTH_SHORT).show()
         }
-
         //Grab movie info
         val movie = movieList[position]
         Log.d("Movie 1st", "$movie")
@@ -51,7 +51,6 @@ class MovieAdapter (private val movieList: List<JSONObject>): RecyclerView.Adapt
         val voteAverage = movie.getString("vote_average")
         Log.d("Movie Title/Average", "$title  $voteAverage")
 
-        val rank = position + 1
         //Set title and rating
         holder.movieTitle.text = "$rank: $title"
         holder.movieRating.text = "Average Rating: $voteAverage"
