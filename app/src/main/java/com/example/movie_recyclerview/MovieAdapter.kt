@@ -15,12 +15,14 @@ class MovieAdapter (private val movieList: List<JSONObject>): RecyclerView.Adapt
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val movieImage: ImageView
+        val moviePosition: TextView
         val movieTitle: TextView
         val movieRating: TextView
 
         init {
             // Find our RecyclerView item's ImageView for future use
             movieImage = view.findViewById(R.id.movie_image)
+            moviePosition = view.findViewById(R.id.movie_number)
             movieTitle = view.findViewById(R.id.movie_title)
             movieRating = view.findViewById(R.id.movie_rating)
         }
@@ -52,7 +54,8 @@ class MovieAdapter (private val movieList: List<JSONObject>): RecyclerView.Adapt
         Log.d("Movie Title/Average", "$title  $voteAverage")
 
         //Set title and rating
-        holder.movieTitle.text = "$rank: $title"
+        holder.moviePosition.text = "#$rank"
+        holder.movieTitle.text = "$title"
         holder.movieRating.text = "Average Rating: $voteAverage"
 
 
