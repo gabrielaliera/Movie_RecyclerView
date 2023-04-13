@@ -2,15 +2,41 @@
     <!-- Base application theme. -->
     <style name="Theme.Movie_RecyclerView" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorPrimaryVariant">@color/red</item>
+        <item name="colorOnPrimary">@color/black_light</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/black_light</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:windowBackground">@color/black_light</item>
+    </style>
+    <style name="TextAppearance.AppHeading" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:fontFamily">@font/bowlby_one_sc</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+    <style name="TextAppearance.MovieRank" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:fontFamily">@font/bowlby_one_sc</item>
+        <item name="android:textSize">29sp</item>
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:padding">8dp</item>
+    </style>
+    <style name="TextAppearance.MovieTitle" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">8dp</item>
+    </style>
+    <style name="TextAppearance.MovieRating" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>
