@@ -3,6 +3,7 @@ package com.example.movie_recyclerview
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,6 +31,8 @@ class MainActivity : AppCompatActivity() {
 
         val apiKEY = getString(R.string.API_KEY)
 
+        //Another call to add year search
+        // "https://api.themoviedb.org/3/discover/movie?api_key=$apiKEY&certification_country=US&certification.lte=R&sort_by=popularity.desc&primary_release_year=2023"
 
         client["https://api.themoviedb.org/3/trending/movie/day?api_key=$apiKEY&language=en-US", object :
             JsonHttpResponseHandler() {
@@ -49,7 +52,15 @@ class MainActivity : AppCompatActivity() {
                 val adapter = MovieAdapter(movieList)
                 rvMovies.adapter = adapter
                 rvMovies.layoutManager = LinearLayoutManager(this@MainActivity)
-                rvMovies.addItemDecoration(DividerItemDecoration(this@MainActivity, LinearLayoutManager.VERTICAL))
+
+                //Add rounded corners
+                val divider = ResourcesCompat.getDrawable(resources, R.drawable.movie_item, null)
+                val itemDecoration = DividerItemDecoration(this@MainActivity, LinearLayoutManager.VERTICAL)
+                itemDecoration.setDrawable(divider!!)
+                rvMovies.addItemDecoration(itemDecoration)
+
+
+
             }
 
             override fun onFailure(
