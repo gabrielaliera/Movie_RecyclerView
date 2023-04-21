@@ -1,6 +1,4 @@
-# AND101 Project  6 & 7 - CYOAPI Part 3: Beautified
-
-Submitted by: **Gabriela Liera**
+# Top20 Movies
 
 Time spent: **10** hours spent in total
 
@@ -17,37 +15,21 @@ The following REQUIRED features are completed:
 - [x] Make an API call to an API of your choice using AsyncHTTPClient
 - [x] Implement a RecyclerView to display a list of entries from the API
 - [x] Display at least three (3) pieces of data for each RecyclerView item
-
-The following STRETCH features are implemented:
-
-- [ ] Add a UI element for the user to interact with API further
 - [x] Show a `Toast` or `Snackbar` when an item is clicked
 - [x] Add item dividers with `DividerItemDecoration`
-
-### Features for Lab 7
-The following REQUIRED features are completed:
-
-- [x] App contains a RecyclerView that displays a list of scrollable data
-- [x] App displays at least two (2) pieces of data for each RecyclerView item
 - [x] Use a downloadable font with custom color and size
 - [x] Modify the theme of the app in `themes.xml`
 - [x] Define and apply at least one style in **either** `themes.xml` or a new file `styles.xml`
-
-The following STRETCH features are implemented:
-
 - [x] Update the night theme to use different versions of styles when in dark mode
 - [x] Use different drawables when in dark mode
-
-The following EXTRA features are implemented: None
-
 
 ## Video Demo
 
 Here's a video / GIF that demos all of the app's implemented features:
 <table>
     <tr>
-         <th>Lab 6</th>
-         <th>Lab 7</th>
+         <th>First Iteration</th>
+         <th>Second Iteration</th>
     </tr>       
     <tr>
         <td><img src='https://github.com/gabrielaliera/Movie_RecyclerView/blob/master/movie-walkthrough.gif' title='Video Demo' width='300' heigth="500" alt='Video Demo' /></td>
